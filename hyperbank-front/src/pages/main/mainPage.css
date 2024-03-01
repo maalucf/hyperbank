@@ -1,0 +1,176 @@
+@media screen and (max-width: 600px) {
+    .text-container {
+        font-size: 2vw;
+    }
+    .small-text{
+        font-size: 1vw;
+    }
+    .text-money {
+        font-size: 3vw;
+        -webkit-text-stroke-width: 0.1vw;
+    }
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+FullpageSection {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text-container {
+    color: #fff;
+    font-family: 'Odibee Sans';
+    font-size: 4vw;
+}
+
+.small-text{
+    font-size: 2vw;
+}
+
+.text-money {
+    font-family: 'Minecraft-2';
+    color: #F8DF19;
+    font-size: 5.5vw;
+    -webkit-text-stroke-width: 0.16vw;
+    -webkit-text-stroke-color: #000;
+}
+
+.section-1 {
+    background-color: #030B33;
+}
+
+.rectangles-detail-1 {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    top: 0vh;
+    right: 0vh;
+}
+
+.rectangles {
+    height: 100%;
+    max-width: 60vh;
+    align-self: flex-end;
+}
+
+.curves-section-1 {
+    position: absolute;
+    display: flex;
+    top: 0vh;
+    left: 0vh;
+}
+
+.curves-s1 {
+    height: 100%;
+    max-width: 30vh;
+}
+
+.logo-section-1 {
+    position: absolute;
+    display: flex;
+    bottom: 0vh;
+    left: 5vh; 
+}
+
+.logo1 {
+    height: 100%;
+    max-width: 20vh;
+}
+
+.title {
+    position: absolute;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-image {
+    height: 100%;
+    max-width: 100vh;
+}
+
+.section-2 {
+    background: linear-gradient(180deg, #030B33 19%, #1C2450 56%, #2C3460 82%);
+}
+
+.section-3 {
+    background: linear-gradient(180deg, #2D3560 4.31%, #303E6A 33.26%, #3D6DA1 81.84%, #3F70A4 100%);
+}
+
+.section-4 {
+    background: #3F70A4;
+}
+
+.section-5 {
+    background: linear-gradient(180deg, #3F70A4 17%, #4C78A9 40%, #6F96C1 55%, #82A7CF 82%);
+}
+
+.section-6 {
+    background: #82A7D0;
+}
+
+.section-7 {
+    background: linear-gradient(180deg, #82A7CF 3.5%, #6F96C1 35.5%, #4C78A9 68%, #3F70A4 92%);
+}
+
+.section-8 {
+    background: linear-gradient(180deg, #3F70A5 15.1%, #3C699C 28.35%, #3A6092 35.71%, #303E6A 64.67%, #2D3560 90.19%);
+}
+
+.section-9 {
+    background: linear-gradient(180deg, #2D3560 17.56%, #1C244E 42.09%, #0F1741 58.78%, #0A123B 78.41%);
+}
+
+.section-10 {
+    background: linear-gradient(180deg, #0B133C 4%, #030B33 88%);
+}
+
+.chart-container {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: transparent;
+}
+
+.verticalBarChart {
+    width: 70%;
+    height: 25rem;
+}
+
+.radarChart {
+    width: 70%;
+    height: 25rem;
+}
+
+.pieChart {
+    width: 70%;
+    height: 25rem;
+}
+
+.horizontalBarChart {
+    width: 70%;
+    height: 25rem;
+}
+
+@font-face {
+    font-family: 'Odibee Sans';
+    src: url(../../font/odibeeSansFont.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Minecraft-2';
+    src: url(../../font/minecraftFont.otf) format('opentype');
+}

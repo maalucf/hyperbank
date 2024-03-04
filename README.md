@@ -82,9 +82,9 @@ To get a local copy up and running follow these steps.
 
 To run the application you must have the following installed:
 
-* node.js
-* npm
-* mysql
+* <a href='https://nodejs.org/en/download/package-manager#nvm'>node.js<a/>
+* <a href='https://docs.npmjs.com/downloading-and-installing-node-js-and-npm'>npm</a>
+* <a href='https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/'>MySQL</a>
 
 ### Installation
 

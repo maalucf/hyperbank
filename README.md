@@ -54,15 +54,12 @@ Here are the trends available on the project:
 5. Top 3 locations transactions were made
 6. Anual income + total saved
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 ### Built With
 
 #### Backend
 
 * [![Node][Node.js]][Node-url]
+* [![Express][Express.js]][Express-url]
 * [![Mysql][Mysql]][Mysql-url]
 
 #### Frontend
@@ -72,10 +69,7 @@ Here are the trends available on the project:
 * ![CSS]
 * ![Html]
 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+<br />
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -138,9 +132,16 @@ To run the application you must have the following installed:
     MYSQL_DB='your_database_name'
     ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Running
 
+To run the application make sure you are inside the <a href='https://github.com/maalucf/hyperbank/tree/main/hyperbank-back'>hyperbank-back</a> folder. Once you are in the correct folder, run the script:
+```sh
+npm run start
+```
 
+When the server is running, you can access the web page through the `http://localhost:5000` link in your browser.
+
+<br />
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -154,9 +155,7 @@ Application demo:
 
 https://github.com/maalucf/hyperbank/assets/114453210/e4279cac-09ea-4831-a980-a5ec750177fb
 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+<br />
 
 <!-- CONTACT -->
 ## Contact
@@ -187,3 +186,5 @@ Project Link: [https://github.com/maalucf/hyperbank](https://github.com/maalucf/
 [Js-url]: https://www.javascript.com
 [Mysql]: https://img.shields.io/badge/MySQL-02569B?style=for-the-badge&logo=mysql&logoColor=white
 [Mysql-url]: https://www.mysql.com
+[Express.js]: https://img.shields.io/badge/Express.js-404D59?style=for-the-badge
+[Express-url]: https://expressjs.com

@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b8fbed87.css",
+    "main.js": "/static/js/main.276bcd4f.js",
+    "static/media/odibeeSansFont.ttf": "/static/media/odibeeSansFont.31af414b21b56ee94b5c.ttf",
+    "static/media/monoroundFont.otf": "/static/media/monoroundFont.653e573bd792326f1fbd.otf",
+    "static/media/minecraftFont.otf": "/static/media/minecraftFont.82ba08919dc2add9422f.otf",
+    "index.html": "/index.html",
+    "main.b8fbed87.css.map": "/static/css/main.b8fbed87.css.map",
+    "main.276bcd4f.js.map": "/static/js/main.276bcd4f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b8fbed87.css",
+    "static/js/main.276bcd4f.js"
+  ]
+}

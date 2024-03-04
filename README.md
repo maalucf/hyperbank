@@ -149,10 +149,8 @@ Database schema:
 
 ![image](https://github.com/maalucf/hyperbank/assets/114453210/db74d792-eea7-400e-a746-56f06ec94eea)
 
-
-Application demo:
-
 <a name="demo"></a>
+Application demo:
 
 https://github.com/maalucf/hyperbank/assets/114453210/e4279cac-09ea-4831-a980-a5ec750177fb
 

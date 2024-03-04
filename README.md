@@ -74,7 +74,7 @@ Here are the trends available on the project:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This repository contains two projects: <a href='https://github.com/maalucf/hyperbank/tree/main/hyperbank-front'>hyperbank-front</a> - the client side application - and <a href='https://github.com/maalucf/hyperbank/tree/main/hyperbank-back'>hyperbank-back</a> - the server - that should run simultaneously.
+This repository contains two projects: <a href='https://github.com/maalucf/hyperbank/tree/main/hyperbank-front'>hyperbank-front</a> - the client side application - and <a href='https://github.com/maalucf/hyperbank/tree/main/hyperbank-back'>hyperbank-back</a> - the server.
 
 To get a local copy up and running follow these steps.
 
@@ -134,7 +134,8 @@ To run the application you must have the following installed:
 
 ### Running
 
-To run the application make sure you are inside the <a href='https://github.com/maalucf/hyperbank/tree/main/hyperbank-back'>hyperbank-back</a> folder. Once you are in the correct folder, run the script:
+To run the application make sure you are inside the <a href='https://github.com/maalucf/hyperbank/tree/main/hyperbank-back'>hyperbank-back</a> folder. 
+Once you are in the correct folder, run the script
 ```sh
 npm run start
 ```

@@ -36,13 +36,15 @@ export const PieChart = ({ chartData }) => {
                       display: false
                     },
                     legend: {
-                      display: false
+                      display: true,
+                      position: 'right'
                     }
                 },
                 animation: {
-                    duration: 2000,
+                    duration: 1500,
                     easing: 'easeInOutQuart'
-                }
+                },
+                cutout: '50%'
             }}
         />
     )

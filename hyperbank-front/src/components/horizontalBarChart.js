@@ -39,6 +39,7 @@ export const HorizontalBarChart = ({ chartData }) => {
             data={barChartData}
             options={{
                 indexAxis: 'y',
+                barPercentage: 0.6,
                 scales: {
                     x: {
                         display: false
@@ -63,7 +64,7 @@ export const HorizontalBarChart = ({ chartData }) => {
                     }
                 },
                 animation: {
-                    duration: 5000,
+                    duration: 1500,
                     easing: 'easeInOutQuart'
                 }
             }}

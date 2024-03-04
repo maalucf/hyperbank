@@ -39,7 +39,15 @@ export const RadarChart = ({ chartData }) => {
                         suggestedMin: 0,
                         suggestedMax: maxCategoryCount + 1,
                         stepSize: 1,
-                    }
+                        pointLabels: {
+                            font: {
+                                size: 12,
+                            }
+                        },
+                        ticks: {
+                            display: false,
+                        }
+                    },
                 },
                 plugins: {
                     title: {
@@ -50,7 +58,7 @@ export const RadarChart = ({ chartData }) => {
                     }
                 },
                 animation: {
-                    duration: 5000,
+                    duration: 1500,
                     easing: 'easeInOutQuart'
                 }
             }}

@@ -1,15 +1,133 @@
-@media screen and (max-width: 600px) {
-    .text-container {
-        font-size: 2vw;
+@media only screen and (max-width: 480px) {
+    .text {
+        font-size: 8vw;
     }
-    .small-text{
-        font-size: 1vw;
-    }
+
     .text-money {
-        font-size: 3vw;
-        -webkit-text-stroke-width: 0.1vw;
+        font-size: 10vw;
+        -webkit-text-stroke-width: 0.3vw;
+    }
+
+    .div-curves-section-2 {
+        top: 0vh;
+    }
+
+    .curves-s2 {
+        max-width: 30%;
+    }
+
+    .small-text {
+        font-size: 5vw;
+    }
+
+    .curve-s3 {
+        max-width: 30%;
+    }
+
+    h1 {
+        font-size: 12vw;
+    }
+
+    .text-container {
+        font-size: 9vw;
+    }
+
+    .rectangles {
+        max-width: 45%;
+    }
+
+    .curves-s1 {
+        max-width: 40%;
+    }
+
+    .logo1 {
+        max-width: 50%;
+    }
+
+    .logo2 {
+        max-width: 50%;
+    }
+
+    .rectangles-2 {
+        max-width: 40%;
     }
 }
+
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+    .text {
+        font-size: 6vw;
+    }
+
+    .text-money {
+        font-size: 8vw;
+        -webkit-text-stroke-width: 0.20vw;
+    }
+
+    .small-text {
+        font-size: 3vw;
+    }
+
+    .div-curves-section-2 {
+        top: 5vh;
+    }
+
+    .curves-s2 {
+        max-width: 35%;
+    }
+
+    .curve-s3 {
+        max-width: 40%;
+    }
+
+    h1 {
+        font-size: 9vw;
+    }
+
+    .text-container {
+        font-size: 6vw;
+    }
+
+    .rectangles {
+        max-width: 50%;
+    }
+
+    .curves-s1 {
+        max-width: 50%;
+    }
+
+    .logo1 {
+        max-width: 50%;
+    }
+
+    .logo2 {
+        max-width: 50%;
+    }
+
+    .rectangles-2 {
+        max-width: 45%;
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .text-money {
+        font-size: 6vw;
+        -webkit-text-stroke-width: 0.16vw;
+    }
+
+    .small-text {
+        font-size: 2vw;
+    }
+
+    h1 {
+        font-size: 7vw;
+    }
+
+    .text-container {
+        font-size: 4vw;
+    }
+}
+
+/* General Style */
 
 .container {
     position: relative;
@@ -17,6 +135,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 FullpageSection {
@@ -30,26 +149,39 @@ FullpageSection {
 .text-container {
     color: #fff;
     font-family: 'Odibee Sans';
-    font-size: 4vw;
-}
-
-.small-text{
-    font-size: 2vw;
 }
 
 .text-money {
     font-family: 'Minecraft-2';
     color: #F8DF19;
-    font-size: 5.5vw;
-    -webkit-text-stroke-width: 0.16vw;
     -webkit-text-stroke-color: #000;
 }
+
+.container-chart {
+    flex-direction: column;
+}
+
+.text-chart {
+    text-align: center;
+}
+
+.div-text-money {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Monoround';
+    color: #fff;
+    text-align: center;
+}
+
+/* Section 1 Style */
 
 .section-1 {
     background-color: #030B33;
 }
 
-.rectangles-detail-1 {
+.div-rectangles-detail-1 {
     position: absolute;
     display: flex;
     justify-content: flex-end;
@@ -58,13 +190,21 @@ FullpageSection {
     right: 0vh;
 }
 
+.img-2023 {
+    width: 70%;
+    height: auto;
+    position: absolute;
+    margin-left: 70%;
+    margin-top: 72%;
+}
+
 .rectangles {
     height: 100%;
-    max-width: 60vh;
+    width: 60%;
     align-self: flex-end;
 }
 
-.curves-section-1 {
+.div-curves-section-1 {
     position: absolute;
     display: flex;
     top: 0vh;
@@ -73,22 +213,22 @@ FullpageSection {
 
 .curves-s1 {
     height: 100%;
-    max-width: 30vh;
+    width: 60%;
 }
 
-.logo-section-1 {
+.div-logo-section-1 {
     position: absolute;
     display: flex;
-    bottom: 0vh;
-    left: 5vh; 
+    bottom: 2vh;
+    left: 5vh;
 }
 
 .logo1 {
     height: 100%;
-    max-width: 20vh;
+    width: 60%;
 }
 
-.title {
+.div-title {
     position: absolute;
     display: flex;
     align-self: center;
@@ -96,52 +236,263 @@ FullpageSection {
     align-items: center;
 }
 
-.title-image {
-    height: 100%;
-    max-width: 100vh;
-}
+/* Section 2 Style */
 
 .section-2 {
     background: linear-gradient(180deg, #030B33 19%, #1C2450 56%, #2C3460 82%);
 }
 
+.text-section-2 {
+    text-align: justify;
+}
+
+.text-section-2-1 {
+    text-align: right;
+}
+
+.div-text-section-2 {
+    height: auto;
+    width: 70%;
+}
+
+.div-curves-section-2 {
+    position: absolute;
+    right: 0vh;
+}
+
+.curves-s2 {
+    height: auto;
+    width: 50%;
+    float: right;
+}
+
+/* Section 3 Style */
+
 .section-3 {
     background: linear-gradient(180deg, #2D3560 4.31%, #303E6A 33.26%, #3D6DA1 81.84%, #3F70A4 100%);
 }
+
+.div-coins-section-3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.coin1 {
+    position: absolute;
+    width: 4vw;
+    margin-top: 10vh;
+    margin-left: 3vw;
+}
+
+.coin2 {
+    position: absolute;
+    width: 3.5vw;
+    margin-top: 56vh;
+    margin-left: 6vw;
+}
+
+.coin3 {
+    position: absolute;
+    width: 3vw;
+    margin-top: 20vh;
+    margin-left: 90vw;
+}
+
+.coin4 {
+    position: absolute;
+    width: 4vw;
+    margin-top: 80vh;
+    margin-left: 15vw;
+}
+
+.coin5 {
+    position: absolute;
+    width: 4.2vw;
+    margin-top: 30vh;
+    margin-left: 8vw;
+}
+
+.coin6 {
+    position: absolute;
+    width: 5vw;
+    margin-top: 80vh;
+    margin-left: 86vw;
+}
+
+.div-curves-section-3 {
+    position: absolute;
+    bottom: 0vh;
+    left: 0vh;
+    float: left;
+}
+
+.curve-s3 {
+    height: auto;
+    width: 50%;
+    float: left;
+    left: 0vh;
+    top: 15vh;
+}
+
+/* Section 4 Style */
 
 .section-4 {
     background: #3F70A4;
 }
 
+/* Section 5 Style */
+
 .section-5 {
     background: linear-gradient(180deg, #3F70A4 17%, #4C78A9 40%, #6F96C1 55%, #82A7CF 82%);
 }
+
+/* Section 6 Style */
 
 .section-6 {
     background: #82A7D0;
 }
 
+/* Section 7 Style */
+
 .section-7 {
     background: linear-gradient(180deg, #82A7CF 3.5%, #6F96C1 35.5%, #4C78A9 68%, #3F70A4 92%);
 }
+
+/* Section 8 Style */
 
 .section-8 {
     background: linear-gradient(180deg, #3F70A5 15.1%, #3C699C 28.35%, #3A6092 35.71%, #303E6A 64.67%, #2D3560 90.19%);
 }
 
+/* Section 9 Style */
+
 .section-9 {
     background: linear-gradient(180deg, #2D3560 17.56%, #1C244E 42.09%, #0F1741 58.78%, #0A123B 78.41%);
 }
+
+.div-coins-section-9 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.coin7 {
+    position: absolute;
+    width: 4vw;
+    margin-top: 10vh;
+    margin-left: 3vw;
+}
+
+.coin8 {
+    position: absolute;
+    width: 3.5vw;
+    margin-top: 56vh;
+    margin-left: 6vw;
+}
+
+.coin9 {
+    position: absolute;
+    width: 3vw;
+    margin-top: 20vh;
+    margin-left: 90vw;
+}
+
+.coin10 {
+    position: absolute;
+    width: 4vw;
+    margin-top: 80vh;
+    margin-left: 15vw;
+}
+
+
+.coin11 {
+    position: absolute;
+    width: 4.2vw;
+    margin-top: 30vh;
+    margin-left: 8vw;
+}
+
+.coin12 {
+    position: absolute;
+    width: 5vw;
+    margin-top: 80vh;
+    margin-left: 86vw;
+}
+
+.coin13 {
+    position: absolute;
+    width: 3.3vw;
+    margin-top: 85vh;
+    margin-left: 42vw;
+}
+
+.coin14 {
+    position: absolute;
+    width: 3vw;
+    margin-top: 10vh;
+    margin-left: 46vw;
+}
+
+.coin15 {
+    position: absolute;
+    width: 3.1vw;
+    margin-top: 58vh;
+    margin-left: 79vw;
+}
+
+.coin16 {
+    position: absolute;
+    width: 3.7vw;
+    margin-top: 12vh;
+    margin-left: 70vw;
+}
+
+/* Section 10 Style */
 
 .section-10 {
     background: linear-gradient(180deg, #0B133C 4%, #030B33 88%);
 }
 
+.div-logo-section-10 {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    bottom: 2vh;
+}
+
+.logo2 {
+    height: 100%;
+    width: 60%;
+}
+
+.rectangles-2 {
+    height: 100%;
+    width: 60%;
+    align-self: flex-end;
+    transform: rotate(-180deg);
+}
+
+.div-rectangles-detail-2 {
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    bottom: 0vh;
+    left: 0vh;
+}
+
+.text-section-10 {
+    text-align: center;
+}
+
+/* Charts Style */
+
 .chart-container {
     padding: 1em;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     background-color: transparent;
 }
 
@@ -161,9 +512,11 @@ FullpageSection {
 }
 
 .horizontalBarChart {
-    width: 70%;
+    width: 60%;
     height: 25rem;
 }
+
+/* Custom Fonts */
 
 @font-face {
     font-family: 'Odibee Sans';
@@ -173,4 +526,9 @@ FullpageSection {
 @font-face {
     font-family: 'Minecraft-2';
     src: url(../../font/minecraftFont.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Monoround';
+    src: url(../../font/monoroundFont.otf) format('opentype');
 }

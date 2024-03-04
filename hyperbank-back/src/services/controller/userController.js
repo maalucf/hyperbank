@@ -16,13 +16,13 @@ router.get('/user_id/:cpf', async (req, res) => {
     }
 });
 
-router.get('/user_name/:cpf', async (req, res) => {
+router.get('/user_name/:user_id', async (req, res) => {
     try {
-        const user = await _repository.getUserNameByCpf(req.params.cpf);
+        const user = await _repository.getUserNameById(req.params.user_id);
         if (user === undefined || Object.keys(user).length === 0) {
             return res.status(401).json({ message: "User not found" });
         } else {
-            return res.status(200).json(user[0]['name']);
+            return res.status(200).json(user[0]['first_name']);
         }
     } catch (err) {
         return res.status(500).json({ message: "Error fetching user name" }); 

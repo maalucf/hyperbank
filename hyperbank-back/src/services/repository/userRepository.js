@@ -22,11 +22,11 @@ async function getUserIdByCpf(cpf) {
     }
 }
 
-async function getUserNameByCpf(cpf) {
-    const query = `SELECT name FROM User WHERE cpf = ?`;
+async function getUserNameById(user_id) {
+    const query = `SELECT SUBSTRING_INDEX(name, ' ', 1) AS first_name FROM User WHERE user_id = ?;`;
     
     try {
-        const [rows] = await pool.query(query, [cpf]);
+        const [rows] = await pool.query(query, [user_id]);
         return rows;
     } catch (err) {
         return err;
@@ -36,5 +36,5 @@ async function getUserNameByCpf(cpf) {
 module.exports = { 
     getUserByPassAndCpf,
     getUserIdByCpf,
-    getUserNameByCpf
+    getUserNameById
 }

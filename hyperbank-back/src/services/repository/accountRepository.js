@@ -1,7 +1,7 @@
 const pool = require("../database/db");
 
-async function getTotalBalanceByUserId(user_id) {
-    const query = `SELECT balance FROM Account WHERE user_id = ?;`;
+async function getTotalBalanceByAccountId(user_id) {
+    const query = `SELECT balance FROM Account WHERE account_id = ?;`;
 
     try {
         const [rows] = await pool.query(query, [user_id]);
@@ -23,6 +23,6 @@ async function getAccountIdByUserId(user_id) {
 }
 
 module.exports = { 
-    getTotalBalanceByUserId,
+    getTotalBalanceByAccountId,
     getAccountIdByUserId
 }

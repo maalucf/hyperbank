@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import Fullpage, { FullpageSection, FullpageNavigation, FullPageSections } from '@ap.cx/react-fullpage';
+import Fullpage, { FullpageSection, FullPageSections } from '@ap.cx/react-fullpage';
 import { defaults } from 'chart.js/auto';
+import { useInView } from 'react-intersection-observer';
+import { useSpring, animated } from 'react-spring';
 import { VerticalBarChart } from '../../components/verticalBarChart';
 import { RadarChart } from '../../components/radarChart';
 import { PieChart } from '../../components/pieChart';
-import { useInView } from 'react-intersection-observer';
-import { useSpring, animated } from 'react-spring';
 import { HorizontalBarChart } from '../../components/horizontalBarChart';
 import axios from 'axios';
 import './mainPage.css';
 
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
+defaults.color = '#FFF';
 
 const api = axios.create({ baseURL: 'http://localhost:5000' });
 
 function LazyLoadedSection({ children }) {
-    const [ref, inView] = useInView({ triggerOnce: false });
+    const [ref, inView] = useInView({ threshold: 0.5 });
   
     return (
       <div ref={ref}>
@@ -32,7 +33,7 @@ function NumberCounter({ n }) {
         from: { number: 0 },
         number: value,
         delay: 200,
-        config: { mass: 10, tension: 500, friction: 300 },
+        config: { mass: 20, tension: 1100, friction: 500 },
     });
     return <animated.div>{number.to((n) => n.toFixed(2))}</animated.div>;
 }
@@ -42,7 +43,6 @@ function Main() {
     const [name, setName] = useState('');
     const [user_id, setUserId] = useState('');
     const [account_id, setAccountId] = useState('');
-    const [totalSpent, setTotalSpent] = useState('');
     const [totalSpentAccount, setTotalSpentAccount] = useState('');
     const [monthlyTotalAmount, setMonthlyTotalAmount] = useState('');
     const [monthMostSpent, setMonthMostSpent] = useState('');
@@ -51,18 +51,8 @@ function Main() {
     const [locations, setLocations] = useState('');
     const [totalIncome, setTotalIncome] = useState('');
     const [balance, setBalance] = useState('');
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await api.get(`/user_name/${cpf}`);
-                setName(response.data);
-            } catch (error) {
-                console.error(error);
-            }
-        }
-        fetchData();
-    }, [cpf]);
+    const [largerThan, setLargerThan] = useState('');
+    const [accountCount, setAccountCount] = useState('');
 
     useEffect(() => {
         async function fetchData() {
@@ -77,16 +67,18 @@ function Main() {
     }, [cpf]);
 
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await api.get(`/total_amount`);
-                setTotalSpent(response.data);
-            } catch (error) {
-                console.error(error);
+        if(user_id) {
+            async function fetchData() {
+                try {
+                    const response = await api.get(`/user_name/${user_id}`);
+                    setName(response.data);
+                } catch (error) {
+                    console.error(error);
+                }
             }
+            fetchData();
         }
-        fetchData();
-    });
+    }, [user_id]);
 
     useEffect(() => {
         if (user_id && !account_id) {
@@ -214,32 +206,53 @@ function Main() {
         }
     }, [account_id]);
 
-    const topPercent = totalSpentAccount/totalSpent;
+    useEffect(() => {
+        if (account_id) {
+            async function fetchData() {
+                try {
+                    const response = await api.get(`/larger_than/${account_id}`);
+                    setLargerThan(response.data);
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+            fetchData();
+        }
+    }, [account_id]);
+
+    useEffect(() => {
+        if (account_id) {
+            async function fetchData() {
+                try {
+                    const response = await api.get(`/accounts_count`);
+                    setAccountCount(response.data);
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+            fetchData();
+        }
+    }, [account_id]);
+
+    const topPercent = ((largerThan / accountCount) * 100).toFixed(1);
     
     return (
         <Fullpage className='main'> 
-            {/* <FullpageNavigation /> */}
             <FullPageSections>
                 <FullpageSection className='section-1'>
                     <LazyLoadedSection>
                         <div className='container'>
-                            <div className='title'>
-                                {/* <h1>{name}'s<br/>Financial<br/>Highlights</h1>
-                                <img className='img-2023' src='../../images/2023.png' alt='2023'></img> */}
-                                <img className='title-image' src='../../images/title.png' alt='title'></img>
+                            <div className='div-title'>
+                                <h1>{name}'s<br/>Financial<br/>Highlights</h1>
+                                <img className='img-2023' src='../../images/2023.png' alt='2023'></img>
                             </div>
-                            <div className='coins-section-1'>
-                                <img className='coin1' src='../../images/coin.png' alt='coin'></img> 
-                                <img className='coin2' src='../../images/coin.png' alt='coin'></img> 
-                                <img className='coin3' src='../../images/coin.png' alt='coin'></img> 
-                            </div>
-                            <div className='logo-section-1'>
+                            <div className='div-logo-section-1'>
                                 <img className='logo1' src='../../images/logo.png' alt='logo'></img> 
                             </div>
-                            <div className='rectangles-detail-1'>
+                            <div className='div-rectangles-detail-1'>
                                 <img className='rectangles' src='../../images/rectangle-detail.png' alt='details'></img>
                             </div>
-                            <div className='curves-section-1'>
+                            <div className='div-curves-section-1'>
                                 <img className='curves-s1' src='../../images/curves-section-1.png' alt='curves'></img> 
                             </div>
                         </div>
@@ -247,12 +260,12 @@ function Main() {
                 </FullpageSection>
                 <FullpageSection className='section-2'>
                     <LazyLoadedSection>
-                        <div className='container'>
-                            <div className='text-container text-section-2'>
-                                <p className='text'>In preparation for your next adventures, let's take a moment to review the accomplishments you have made this year</p>
-                                <span className='text' style={{color: '#F8DF19'}}>Ready?</span>
+                        <div className='container s2'>
+                            <div className='text-container div-text-section-2'>
+                                <p className='text text-section-2'>In preparation for your next adventures, let's take a moment to review the accomplishments you have made this year</p>
+                                <p className='text text-section-2-1'><span style={{color: '#F8DF19'}}>Ready?</span></p>
                             </div>
-                            <div className='curves-section-2'>
+                            <div className='div-curves-section-2'>
                                 <img className='curves-s2' src='../../images/curves-section-2.png' alt='curves'></img>
                             </div>
                         </div>
@@ -261,18 +274,18 @@ function Main() {
                 <FullpageSection className='section-3'>
                     <LazyLoadedSection>
                         <div className='container'>
-                            <div className='coins-section-3'>
+                            <div className='div-coins-section-3'>
+                                <img className='coin1' src='../../images/coin.png' alt='coin'></img> 
+                                <img className='coin2' src='../../images/coin.png' alt='coin'></img> 
+                                <img className='coin3' src='../../images/coin.png' alt='coin'></img> 
                                 <img className='coin4' src='../../images/coin.png' alt='coin'></img> 
                                 <img className='coin5' src='../../images/coin.png' alt='coin'></img> 
                                 <img className='coin6' src='../../images/coin.png' alt='coin'></img> 
-                                <img className='coin7' src='../../images/coin.png' alt='coin'></img> 
-                                <img className='coin8' src='../../images/coin.png' alt='coin'></img> 
-                                <img className='coin9' src='../../images/coin.png' alt='coin'></img> 
                             </div>
-                            <div>
+                            <div className='div-curves-section-3'>
                                 <img className='curve-s3' src='../../images/curve-section-3.png' alt='curve'></img>
                             </div>
-                            <div className='text-container text-section-3'>
+                            <div className='text-container div-text-money'>
                                 <p className='text'>In 2023, you spent the grand amount of</p>
                                 <div className='text-money'><NumberCounter n={totalSpentAccount}/></div>
                                 <p className='small-text small-text-3'>
@@ -286,10 +299,9 @@ function Main() {
                 </FullpageSection>
                 <FullpageSection className='section-4'>
                     <LazyLoadedSection>
-                        <div className='container'>
-                            <div className='text-container text-section-4'>
-                                <p className='text'>And you did it throughout the months,</p>
-                                <p className='text'>
+                        <div className='container container-chart'>
+                            <div className='text-container div-text-section-4'>
+                                <p className='text text-chart'>And you did it throughout the months, <br />
                                     but {' '}
                                     <span style={{color: '#F8DF19'}}>{monthMostSpent}</span>{' '}
                                     was quite special
@@ -303,10 +315,9 @@ function Main() {
                 </FullpageSection>
                 <FullpageSection className='section-5'>
                     <LazyLoadedSection>
-                        <div className='container'>
-                            <div className='text-container text-section-5'>
-                                <p className='text'>The way you did it</p>
-                                <p className='text'>
+                        <div className='container container-chart'>
+                            <div className='text-container div-text-section-5'>
+                                <p className='text-chart'>The way you did it <br />
                                     was {' '}
                                     <span style={{color: '#F8DF19'}}>unique</span>
                                 </p>
@@ -319,9 +330,9 @@ function Main() {
                 </FullpageSection>
                 <FullpageSection className='section-6'>
                     <LazyLoadedSection>
-                        <div className='container'>
-                            <div className='text-container text-section-6'>
-                                <p className='text'>
+                        <div className='container container-chart'>
+                            <div className='text-container div-text-section-6'>
+                                <p className='text text-chart'>
                                     Still, there was one {' '}
                                     <span style={{color: '#F8DF19'}}> payment method </span>{' '}
                                     that stood out
@@ -335,11 +346,11 @@ function Main() {
                 </FullpageSection>
                 <FullpageSection className='section-7'>
                     <LazyLoadedSection>
-                        <div className='container'>
-                            <div className='text-container text-section-7'>
-                                <p className='text'>
+                        <div className='container container-chart'>
+                            <div className='text-container div-text-section-7'>
+                                <p className='text text-chart'>
                                     Speaking of standing out, these are the {' '}
-                                    <span style={{color: '#F8DF19'}}> top 3 locations </span>{' '}
+                                    <span style={{color: '#F8DF19'}}> top 3 locations <br /></span>{' '}
                                     you have made transactions at
                                 </p>
                             </div>
@@ -352,7 +363,7 @@ function Main() {
                 <FullpageSection className='section-8'>
                     <LazyLoadedSection>
                         <div className='container'>
-                            <div className='text-container text-section-8'>
+                            <div className='text-container div-text-section-8'>
                                 <p className='text'>However, spending was not all you did</p>
                             </div>
                         </div>
@@ -361,7 +372,7 @@ function Main() {
                 <FullpageSection className='section-9'>
                     <LazyLoadedSection>
                         <div className='container'>
-                            <div className='text-container text-section-9'>
+                            <div className='text-container div-text-money'>
                                 <p className='text'>This year, you have saved</p>
                                 <div className='text-money'><NumberCounter n={balance}/></div>
                                 <p className='small-text small-text-9'>
@@ -370,7 +381,10 @@ function Main() {
                                     earned
                                 </p>
                             </div>
-                            <div className='coins-section-9'>
+                            <div className='div-coins-section-9'>
+                                <img className='coin7' src='../../images/coin.png' alt='coin'></img> 
+                                <img className='coin8' src='../../images/coin.png' alt='coin'></img> 
+                                <img className='coin9' src='../../images/coin.png' alt='coin'></img> 
                                 <img className='coin10' src='../../images/coin.png' alt='coin'></img> 
                                 <img className='coin11' src='../../images/coin.png' alt='coin'></img> 
                                 <img className='coin12' src='../../images/coin.png' alt='coin'></img> 
@@ -378,9 +392,6 @@ function Main() {
                                 <img className='coin14' src='../../images/coin.png' alt='coin'></img> 
                                 <img className='coin15' src='../../images/coin.png' alt='coin'></img> 
                                 <img className='coin16' src='../../images/coin.png' alt='coin'></img> 
-                                <img className='coin17' src='../../images/coin.png' alt='coin'></img> 
-                                <img className='coin18' src='../../images/coin.png' alt='coin'></img> 
-                                <img className='coin19' src='../../images/coin.png' alt='coin'></img> 
                             </div>
                         </div>
                     </LazyLoadedSection>
@@ -388,14 +399,16 @@ function Main() {
                 <FullpageSection className='section-10'>
                     <LazyLoadedSection>
                         <div className='container'>
-                            <div className='text-container text-section-10'>
-                                <p className='text'>It was a great ride.</p>
-                                <p className='text'>Hope to see you again next year!</p>
+                            <div className='text-container div-text-section-10'>
+                                <p className='text text-section-10'>
+                                    It was a great ride. <br /> 
+                                    Hope to see you again next year!
+                                </p>
                             </div>
-                            <div className='logo-section-10'>
+                            <div className='div-logo-section-10'>
                                 <img className='logo2' src='../../images/logo.png' alt='logo'></img>
                             </div>
-                            <div className='rectangles-detail-10'>
+                            <div className='div-rectangles-detail-2'>
                                 <img className='rectangles-2' src='../../images/rectangle-detail.png' alt='details'></img>
                             </div>
                         </div>

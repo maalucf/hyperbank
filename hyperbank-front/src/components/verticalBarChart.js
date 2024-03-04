@@ -63,7 +63,7 @@ export const VerticalBarChart = ({ chartData }) => {
                     }
                 },
                 animation: {
-                    duration: 2000,
+                    duration: 1500,
                     easing: 'easeInOutQuart'
                 }
             }}

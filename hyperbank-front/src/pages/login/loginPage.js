@@ -10,6 +10,10 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    document.getElementById('password').value = '';
+    document.getElementById('cpf').value = '';
+
     try {
       const response = await api.post('/login', {
         cpf,
@@ -22,7 +26,7 @@ function Login() {
       } 
     } catch (error) {
       if(error.response.status === 401) {
-        alert('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+        document.getElementById('error-message').style.display = 'block';
       }
       console.error(error.response.data.message);
     }
@@ -51,6 +55,7 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          <div id='error-message'>Incorrect user and/or password</div>
           <button type='submit'>Sign In</button>
         </form>
       </div>

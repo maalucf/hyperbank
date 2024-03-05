@@ -154,7 +154,7 @@ Database schema:
 <a name="demo"></a>
 Application demo:
 
-https://github.com/maalucf/hyperbank/assets/114453210/e4279cac-09ea-4831-a980-a5ec750177fb
+https://github.com/maalucf/hyperbank/assets/114453210/946fe915-c9ef-48e5-9dcd-7bc0f981a105
 
 <br />
 
